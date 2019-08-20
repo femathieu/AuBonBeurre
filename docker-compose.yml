@@ -7,4 +7,12 @@ services:
       dockerfile: ./container/webapp/Dockerfile
     ports:
       - 8080:80
-  
+
+  database:
+    build:
+      context: .
+      dockerfile: ./container/database/Dockerfile
+    ports:
+       - 3307:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: aubonbeurre
