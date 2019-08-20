@@ -1,0 +1,10 @@
+version: '3.3'
+
+services:
+  webapp:
+    build:
+      context: .
+      dockerfile: ./container/webapp/Dockerfile
+    ports:
+      - 8080:80
+  
