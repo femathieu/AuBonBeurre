@@ -16,3 +16,8 @@ services:
        - 3307:3306
     environment:
       MYSQL_ROOT_PASSWORD: aubonbeurre
+
+  unit:
+    build:
+      context: .
+      dockerfile: ./container/unity/Dockerfile
