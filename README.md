@@ -1,3 +1,5 @@
+# Vous pourrez trouver plus d'informations concernant cette application dans le dossier docs
+
 # AuBonBeurre
 Repository hébergeant le projet Au Bon Beurre.
 

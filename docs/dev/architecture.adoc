@@ -1,0 +1,26 @@
+Architecture de notre application :
+
+=== container
+contient tous les fichiers sources des conteneurs
+les fichiers start.sh sont des fichiers bash contenant des commandes à exécuter lors du build du conteneur
+
+* database : +
+image de la base de données mariadb
+* webapp : +
+image de l'application web
+* unit : +
+image d'une unité à instancier cinq fois
+
+=== docs
+contient toute la documentation liée à l'application. Aucune docummentation ne doit se trouver dans les commentaire du code. Il es préférable de l'insérer ici.
+
+=== src
+Contient les fichiers source de notre application.
+
+* script :
+Fichiers python lié aux fonctionnalités décrites dans le cahier des charges
+* webapp :
+Fichiers concernant de la webapp.
+
+=== config
+Contient les fichiers de configuration

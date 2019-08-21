@@ -1,0 +1,5 @@
+Nomenclature de la base de données :
+
+* Les noms sont écris avec des underscore et en minuscule
+* Aucuns caractères spéciaux ne doivent être utilisés dans les noms
+* Les clés étrangères respectent la nomenclature : nomtablereferencé_colonneréférencé
