@@ -1,126 +1,133 @@
-#------------------------------------------------------------
-#        Script MySQL.
-#------------------------------------------------------------
+-- phpMyAdmin SQL Dump
+-- version 4.6.6deb4
+-- https://www.phpmyadmin.net/
+--
+-- Client :  localhost:3306
+-- Généré le :  Mer 21 Août 2019 à 12:54
+-- Version du serveur :  10.1.38-MariaDB-0+deb9u1
+-- Version de PHP :  7.0.33-0+deb9u3
 
-use aubonbeurre;
-
-#------------------------------------------------------------
-# Table: SYSTEM_DETAILS
-#------------------------------------------------------------
-
-CREATE TABLE SYSTEM_DETAILS(
-        id                         Int  Auto_increment  NOT NULL ,
-        tank_temperature           Float NOT NULL ,
-        outside_temperature        Float NOT NULL ,
-        milk_weight                Float NOT NULL ,
-        measure_pH                 Float NOT NULL ,
-        measure_Kplus              Int NOT NULL ,
-        NaCI_concentration         Float NOT NULL ,
-        salmonelle_bacterian_level Int NOT NULL ,
-        E_coli_bacterian_level     Int NOT NULL ,
-        niveau_bacterien_Listeria  Int NOT NULL ,
-        system_main_number         Varchar (50) NOT NULL
-	,CONSTRAINT SYSTEM_DETAILS_AK UNIQUE (system_main_number)
-	,CONSTRAINT SYSTEM_DETAILS_PK PRIMARY KEY (id)
-)ENGINE=InnoDB;
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
 
 
-#------------------------------------------------------------
-# Table: SYSTEM_MAIN
-#------------------------------------------------------------
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
-CREATE TABLE SYSTEM_MAIN(
-        id                  Int  Auto_increment  NOT NULL ,
-        system_number       Varchar (255) NOT NULL ,
-        number_type         Varchar (255) NOT NULL ,
-        product_unit_number Varchar (50) NOT NULL
-	,CONSTRAINT SYSTEM_MAIN_AK UNIQUE (product_unit_number)
-	,CONSTRAINT SYSTEM_MAIN_PK PRIMARY KEY (id)
-)ENGINE=InnoDB;
+--
+-- Base de données :  `YASS`
+--
 
+-- --------------------------------------------------------
 
-#------------------------------------------------------------
-# Table: JOB
-#------------------------------------------------------------
+--
+-- Structure de la table `JOB`
+--
 
-CREATE TABLE JOB(
-        id    Int  Auto_increment  NOT NULL ,
-        label Varchar (50) NOT NULL
-	,CONSTRAINT JOB_PK PRIMARY KEY (id)
-)ENGINE=InnoDB;
+CREATE TABLE `JOB` (
+  `id` int(11) NOT NULL,
+  `label` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- --------------------------------------------------------
 
-#------------------------------------------------------------
-# Table: USERS
-#------------------------------------------------------------
+--
+-- Structure de la table `PRODUCTION_UNIT`
+--
 
-CREATE TABLE USERS(
-        id_users   Int  Auto_increment  NOT NULL ,
-        username   Varchar (255) NOT NULL ,
-        password   Varchar (255) NOT NULL ,
-        job_label  Varchar (255) NOT NULL ,
-        p_u_number Varchar (255) NOT NULL ,
-        id         Int NOT NULL ,
-        id_JOB     Int NOT NULL
-	,CONSTRAINT USERS_AK0 UNIQUE (job_label,p_u_number)
-	,CONSTRAINT USERS_PK PRIMARY KEY (id_users)
-)ENGINE=InnoDB;
+CREATE TABLE `PRODUCTION_UNIT` (
+  `id` int(11) NOT NULL,
+  `unit_number` int(11) NOT NULL,
+  `id_users` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- --------------------------------------------------------
 
-#------------------------------------------------------------
-# Table: PRODUCTION_UNIT
-#------------------------------------------------------------
+--
+-- Structure de la table `SUITABLE`
+--
 
-CREATE TABLE PRODUCTION_UNIT(
-        id          Int  Auto_increment  NOT NULL ,
-        unit_number Int NOT NULL ,
-        id_users    Int
-	,CONSTRAINT PRODUCTION_UNIT_PK PRIMARY KEY (id)
-)ENGINE=InnoDB;
+CREATE TABLE `SUITABLE` (
+  `id` int(11) NOT NULL,
+  `id_PRODUCTION_UNIT` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- --------------------------------------------------------
 
-#------------------------------------------------------------
-# Table: SUITABLE
-#------------------------------------------------------------
+--
+-- Structure de la table `SYSTEM_MAIN`
+--
 
-CREATE TABLE SUITABLE(
-        id                 Int NOT NULL ,
-        id_PRODUCTION_UNIT Int NOT NULL
-	,CONSTRAINT SUITABLE_PK PRIMARY KEY (id,id_PRODUCTION_UNIT)
-)ENGINE=InnoDB;
+CREATE TABLE `SYSTEM_MAIN` (
+  `id` int(11) NOT NULL,
+  `system_number` varchar(255) NOT NULL,
+  `number_type` varchar(255) NOT NULL,
+  `product_unit_number` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Index pour les tables exportées
+--
 
+--
+-- Index pour la table `JOB`
+--
+ALTER TABLE `JOB`
+  ADD PRIMARY KEY (`id`);
 
+--
+-- Index pour la table `PRODUCTION_UNIT`
+--
+ALTER TABLE `PRODUCTION_UNIT`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `PRODUCTION_UNIT_USERS0_AK` (`id_users`);
 
-ALTER TABLE USERS
-	ADD CONSTRAINT USERS_PRODUCTION_UNIT0_FK
-	FOREIGN KEY (id)
-	REFERENCES PRODUCTION_UNIT(id);
+--
+-- Index pour la table `SUITABLE`
+--
+ALTER TABLE `SUITABLE`
+  ADD PRIMARY KEY (`id`,`id_PRODUCTION_UNIT`),
+  ADD KEY `SUITABLE_PRODUCTION_UNIT1_FK` (`id_PRODUCTION_UNIT`);
 
-ALTER TABLE USERS
-	ADD CONSTRAINT USERS_JOB1_FK
-	FOREIGN KEY (id_JOB)
-	REFERENCES JOB(id);
+--
+-- Index pour la table `SYSTEM_MAIN`
+--
+ALTER TABLE `SYSTEM_MAIN`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `SYSTEM_MAIN_AK` (`product_unit_number`);
 
-ALTER TABLE USERS
-	ADD CONSTRAINT USERS_PRODUCTION_UNIT0_AK
-	UNIQUE (id);
+--
+-- AUTO_INCREMENT pour les tables exportées
+--
 
-ALTER TABLE PRODUCTION_UNIT
-	ADD CONSTRAINT PRODUCTION_UNIT_USERS0_FK
-	FOREIGN KEY (id_users)
-	REFERENCES USERS(id_users);
+--
+-- AUTO_INCREMENT pour la table `JOB`
+--
+ALTER TABLE `JOB`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `PRODUCTION_UNIT`
+--
+ALTER TABLE `PRODUCTION_UNIT`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `SYSTEM_MAIN`
+--
+ALTER TABLE `SYSTEM_MAIN`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- Contraintes pour les tables exportées
+--
 
-ALTER TABLE PRODUCTION_UNIT
-	ADD CONSTRAINT PRODUCTION_UNIT_USERS0_AK
-	UNIQUE (id_users);
+--
+-- Contraintes pour la table `SUITABLE`
+--
+ALTER TABLE `SUITABLE`
+  ADD CONSTRAINT `SUITABLE_PRODUCTION_UNIT1_FK` FOREIGN KEY (`id_PRODUCTION_UNIT`) REFERENCES `PRODUCTION_UNIT` (`id`),
+  ADD CONSTRAINT `SUITABLE_SYSTEM_MAIN0_FK` FOREIGN KEY (`id`) REFERENCES `SYSTEM_MAIN` (`id`);
 
-ALTER TABLE SUITABLE
-	ADD CONSTRAINT SUITABLE_SYSTEM_MAIN0_FK
-	FOREIGN KEY (id)
-	REFERENCES SYSTEM_MAIN(id);
-
-ALTER TABLE SUITABLE
-	ADD CONSTRAINT SUITABLE_PRODUCTION_UNIT1_FK
-	FOREIGN KEY (id_PRODUCTION_UNIT)
-	REFERENCES PRODUCTION_UNIT(id);
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
