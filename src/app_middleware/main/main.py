@@ -1,8 +1,10 @@
 import json;
 import os;
 
-with open("paramunite_1_1566310765.0.json", "r") as f:
-    datastore = json.load(f)
+files = [f for f in os.listdir('.') if re.match(r'.*\.json', f)]
 
 
-
+for f in files:
+        with open(f) as json_file:
+            data = json.load(json_file)
+            print(data)
