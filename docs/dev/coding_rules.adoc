@@ -1,0 +1,5 @@
+Règles de codage à respecter :
+
+* L'anglais est le lanagage d'écriture pour tout excepté la documentatio
+* Les variables, fonctions et classes doivent respecter le camel case
+* Les constantes sont écrites en majuscules avec des underscores

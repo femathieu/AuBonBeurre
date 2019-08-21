@@ -8,3 +8,5 @@ Projet fait fin août avec notre formateur préféré : François Nicot.
 - Gelineau Guillaume
 - Raher Camille
 - Sid-Idris Pierre
+
+# Vous pourrez plus d'informations concernant cette application dans le dossier docs
