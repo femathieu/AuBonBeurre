@@ -446,6 +446,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li><a href="#_coding_rules">Coding rules</a></li>
 <li><a href="#_base_de_données">Base de données</a></li>
+<li><a href="#_versioning">Versioning</a></li>
+<li><a href="#_résolution_de_bug">Résolution de bug</a></li>
 </ul>
 </div>
 </div>
@@ -563,10 +565,45 @@ Fichiers concernant de la webapp.</p>
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_versioning">Versioning</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Nous utilisons git avec un dépôt distant sur GitHub pour le versioning.<br>
+Nous suivrons au mieux la méthode Git Flow.<br>
+Quelques principes de la méhode git flow :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Branche master est la branche principal contenant la dernière version stable</p>
+</li>
+<li>
+<p>Branch develop sert à mettre en commun les développement</p>
+</li>
+<li>
+<p>Lorsque développement d&#8217;une nouvelle fonctionnalité, tiré une branche suivant la nomenclature : f-nom-fonctionnalité depuis la branche develop.</p>
+</li>
+<li>
+<p>Lors de la résolution d&#8217;un bug tiré une nouvelle branche respectant la nomenclature : h-nom-bug depuis la branche develop
+se puis merge release sur master.- Lors d&#8217;une nouvelle version : merge la branche develop sur la branche release, effectué les dernières modifications et le numéros de build sur relea</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_résolution_de_bug">Résolution de bug</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Lors de la résolution d&#8217;un bug, ouvrir une issue sur GitHub décrivant le bug et sa localisation. Lorsque le problème est résolue, faire un commit avec le numéro d&#8217;issue.</p>
+</div>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-08-21 11:18:43 +0200
+Last updated 2019-08-21 11:43:24 +0200
 </div>
 </div>
 </body>
