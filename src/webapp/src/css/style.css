@@ -46,13 +46,13 @@ ul > li{
 .list-units{
     display: flex;
     align-items: center;
+    justify-content: space-between;
     padding: 0;
 }
 
 .item-list-units{
     list-style-type: none;
     background-color: white;
-    margin-right: 1rem;
     padding: 1rem;
     border-bottom-right-radius: 20px;
     box-shadow: 5px 5px 13px rgb(0, 0, 0, 0.1);
@@ -106,6 +106,7 @@ ul > li{
     background-color: rgb(228, 231, 248);
     padding: .5rem 1rem;
     border-radius: 50px;
+    font-size: 12px;
 }
 
 .item-list-anomaly-system .maintenance-status-is-hs{
