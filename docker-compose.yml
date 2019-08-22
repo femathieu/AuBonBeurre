@@ -23,3 +23,11 @@ services:
       dockerfile: ./container/unity/Dockerfile
     volumes:
       - ./src/script/:/opt/script/
+
+  app_middleware:
+    build:
+      context: .
+      dockerfile: ./container/middleware/Dockerfile
+    volumes:
+      - ./src/app_middleware/:/opt/aubonbeurre
+
