@@ -5,3 +5,5 @@
 /src/webapp/node_modules/
 /src/webapp/gulpfile.js
 /src/webapp/package.json
+
+src/app_middleware/main/data
