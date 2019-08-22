@@ -20,6 +20,7 @@ RUN echo '* *   * * *   root    /bin/bash   /opt/crontask.sh' >> /etc/crontab
 RUN echo '#' >> /etc/crontab
 
 RUN mkdir /opt/script
+RUN mkdir /opt/data
 COPY ./src/script/ /opt/script/
 WORKDIR /opt/script/main/code/all_linux00/bin
 
