@@ -6,7 +6,7 @@ import os
 import re
 import json
 
-files = [f for f in os.listdir('.') if re.match(r'\d*\.\d*', f)]
+files = [f for f in os.listdir('.') if re.match(r'data', f)]
 
 
 for f in files:
