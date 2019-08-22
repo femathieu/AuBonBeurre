@@ -21,3 +21,10 @@ services:
     build:
       context: .
       dockerfile: ./container/unity/Dockerfile
+
+  app_middleware:
+    build:
+      context: .
+      dockerfile: ./container/middleware/Dockerfile
+    volumes:
+      - ./src/app_middleware/:/opt/aubonbeurre
