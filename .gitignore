@@ -1,1 +1,7 @@
 .idea/
+
+# ignore directories
+.sass-cache/
+/src/webapp/node_modules/
+/src/webapp/gulpfile.js
+/src/webapp/package.json

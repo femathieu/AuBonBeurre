@@ -1,0 +1,115 @@
+body{
+    background-color: rgb(239, 242, 249);
+}
+
+h1{
+    margin-bottom: 1rem;
+}
+
+h2{
+    margin-bottom: 1rem;
+}
+
+a{
+    color: rgb(106, 116, 201);
+}
+a:hover{
+    text-decoration: none;
+}
+
+ul{
+    padding: 0;
+}
+
+ul > li{
+    list-style-type: none;
+}
+
+.primary-color{
+    color: rgb(106, 116, 201);
+}
+
+.block-header{
+    position: relative;
+    width: 100%;
+}
+
+.block-nav{
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1030;
+    width: 126px;
+}
+
+.list-units{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+}
+
+.item-list-units{
+    list-style-type: none;
+    background-color: white;
+    padding: 1rem;
+    border-bottom-right-radius: 20px;
+    box-shadow: 5px 5px 13px rgb(0, 0, 0, 0.1);
+}
+
+.item-list-anomaly-system{
+    margin-bottom: .75rem;
+}
+
+.item-list-anomaly-system a{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background-color: white;
+    padding: .5rem 1rem;
+    border-bottom-right-radius: 20px;
+    box-shadow: 5px 5px 9px rgb(0, 0, 0, 0.05);
+}
+
+.item-list-anomaly-system .unity{
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    background-color: rgb(228, 231, 248);
+}
+
+.item-list-anomaly-system .content-anomaly-system{
+    display: flex;
+    align-items: center;
+}
+
+.item-list-anomaly-system .content-anomaly-system svg{
+    margin-right: 1rem;
+}
+
+.item-list-anomaly-system .content-anomaly-system .anomaly{
+    display: flex;
+    flex-direction: column;
+}
+
+.item-list-anomaly-system .content-anomaly-system .anomaly .title-anomaly{
+    font-weight: bold;
+}
+
+.item-list-anomaly-system .maintenance-statut{
+    background-color: rgb(228, 231, 248);
+    padding: .5rem 1rem;
+    border-radius: 50px;
+    font-size: 12px;
+}
+
+.item-list-anomaly-system .maintenance-status-is-hs{
+    background-color: rgba(219, 77, 137, 0.5);
+    color: rgb(219, 77, 137);
+}
