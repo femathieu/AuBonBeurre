@@ -36,8 +36,8 @@ connection = pymysql.connect(host='database',
 try:
     with connection.cursor() as cursor:
         # Create a new record
-        sql = "INSERT INTO `test` (`automateType`) VALUES (%s)\nINSERT INTO `test` (`cuveTemp`) VALUES (%s)\nINSERT INTO `test` (`extTemp`) VALUES (%s)\nINSERT INTO `test` (`milkWeight`) VALUES (%s)\nINSERT INTO `test` (`phMeasure`) VALUES (%s)\nINSERT INTO `test` (`kMeasure`) VALUES (%s)\nINSERT INTO `test` (`concentration`) VALUES (%s)\nINSERT INTO `test` (`salmonelleLevel`) VALUES (%s)\nINSERT INTO `test` (`ecoliLevel`) VALUES (%s)\nINSERT INTO `test` (`listeriaLevel`) VALUES (%s)\n"
-        cursor.execute(sql, ('{}'.format(automateType, cuveTemp, extTemp, milkWeight, phMeasure, kMeasure, concentration, salmonelleLevel, ecoliLevel, listeriaLevel)))
+        sql = "INSERT INTO `test` (`automateType`, `cuveTemp`, `extTemp`, `milkWeight`, `phMeasure`, `kMeasure`, `concentration`, `salmonelleLevel`, `ecoliLevel`, `listeriaLevel`) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s);"
+        cursor.execute(sql, (automateType, cuveTemp, extTemp, milkWeight, phMeasure, kMeasure, concentration, salmonelleLevel, ecoliLevel, listeriaLevel))
 
         # connection is not autocommit by default. So you must commit to save
         # your changes.
