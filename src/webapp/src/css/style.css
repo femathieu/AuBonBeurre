@@ -10,6 +10,10 @@ h2{
     margin-bottom: 1rem;
 }
 
+h3{
+    font-size: 20px;
+}
+
 a{
     color: rgb(106, 116, 201);
 }
@@ -56,6 +60,15 @@ ul > li{
     padding: 1rem;
     border-bottom-right-radius: 20px;
     box-shadow: 5px 5px 13px rgb(0, 0, 0, 0.1);
+}
+
+.item-list-units .content-anomaly .date{
+    font-size: 12px;
+}
+
+.item-list-units .content-anomaly .anomaly{
+    font-size: 14px;
+    font-weight: bold;
 }
 
 .item-list-anomaly-system{
