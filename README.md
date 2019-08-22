@@ -6,7 +6,7 @@ Repository hébergeant le projet Au Bon Beurre.
 Projet fait fin août avec notre formateur préféré : François Nicot.
 
 # Membres du groupe : 
-- Ferron Mathieu
-- Gelineau Guillaume
-- Raher Camille
-- Sid-Idris Pierre
+- Ferron Mathieu (femathieu)
+- Gelineau Guillaume (guillaumegelineau)
+- Raher Camille (CamilleR1702)
+- Sid-Idris Pierre (pierresididris)
