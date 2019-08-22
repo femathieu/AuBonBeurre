@@ -22,24 +22,15 @@ SET time_zone = "+00:00";
 
 -- --------------------------------------------------------
 
+use aubonbeurre;
+
 --
 -- Structure de la table `PRODUCTION_UNIT`
 --
 
-CREATE TABLE `PRODUCTION_UNIT` (
-  `id` int(11) NOT NULL,
-  `unit_number` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `SUITABLE`
---
-
-CREATE TABLE `SUITABLE` (
-  `id` int(11) NOT NULL,
-  `id_PRODUCTION_UNIT` int(11) NOT NULL
+CREATE TABLE `production_unit` (
+  `id` int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `unit_number` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -48,17 +39,18 @@ CREATE TABLE `SUITABLE` (
 -- Structure de la table `SYSTEM_DETAILS`
 --
 
-CREATE TABLE `SYSTEM_DETAILS` (
-  `id` int(11) NOT NULL,
+CREATE TABLE `system_detail` (
+  `id` int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `system_main_id` int NOT NULL,
   `tank_temperature` float NOT NULL,
   `outside_temperature` float NOT NULL,
   `milk_weight` float NOT NULL,
-  `measure_pH` float NOT NULL,
-  `measure_Kplus` int(11) NOT NULL,
-  `NaCI_concentration` float NOT NULL,
-  `salmonelle_bacterian_level` int(11) NOT NULL,
-  `E_coli_bacterian_level` int(11) NOT NULL,
-  `Listeria_bactiera_level` int(11) NOT NULL
+  `pH` float NOT NULL,
+  `Kplus` int NOT NULL,
+  `NaCI` float NOT NULL,
+  `salmonelle` int NOT NULL,
+  `E_coli` int NOT NULL,
+  `Listeria` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -67,70 +59,25 @@ CREATE TABLE `SYSTEM_DETAILS` (
 -- Structure de la table `SYSTEM_MAIN`
 --
 
-CREATE TABLE `SYSTEM_MAIN` (
-  `id` int(11) NOT NULL,
-  `system_number` varchar(255) NOT NULL,
-  `number_type` varchar(255) NOT NULL
+CREATE TABLE `system_main` (
+  `id` int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `system_number` int NOT NULL,
+  `system_type` varchar(255),
+  `production_unit_id` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Index pour les tables exportées
 --
 
---
--- Index pour la table `PRODUCTION_UNIT`
---
-ALTER TABLE `PRODUCTION_UNIT`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE system_detail
+    ADD FOREIGN KEY (id) REFERENCES system_main(id);
 
---
--- Index pour la table `SUITABLE`
---
-ALTER TABLE `SUITABLE`
-  ADD PRIMARY KEY (`id`,`id_PRODUCTION_UNIT`),
-  ADD KEY `SUITABLE_PRODUCTION_UNIT0_FK` (`id_PRODUCTION_UNIT`);
+ALTER TABLE system_main
+    ADD FOREIGN KEY (id) REFERENCES production_unit(id);
 
---
--- Index pour la table `SYSTEM_DETAILS`
---
-ALTER TABLE `SYSTEM_DETAILS`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `SYSTEM_MAIN`
---
-ALTER TABLE `SYSTEM_MAIN`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT pour les tables exportées
---
-
---
--- AUTO_INCREMENT pour la table `PRODUCTION_UNIT`
---
-ALTER TABLE `PRODUCTION_UNIT`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT pour la table `SYSTEM_DETAILS`
---
-ALTER TABLE `SYSTEM_DETAILS`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT pour la table `SYSTEM_MAIN`
---
-ALTER TABLE `SYSTEM_MAIN`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- Contraintes pour les tables exportées
---
-
---
--- Contraintes pour la table `SUITABLE`
---
-ALTER TABLE `SUITABLE`
-  ADD CONSTRAINT `SUITABLE_PRODUCTION_UNIT0_FK` FOREIGN KEY (`id_PRODUCTION_UNIT`) REFERENCES `PRODUCTION_UNIT` (`id`),
-  ADD CONSTRAINT `SUITABLE_SYSTEM_MAIN_FK` FOREIGN KEY (`id`) REFERENCES `SYSTEM_MAIN` (`id`);
+INSERT INTO production_unit (unit_number) VALUE (1);
+INSERT INTO system_main (system_number, system_type, production_unit_id) VALUES (1, 'custom_type', 1);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
