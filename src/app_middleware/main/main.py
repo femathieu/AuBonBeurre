@@ -1,7 +1,9 @@
+#!/usr/src/Python-3.7.4/python
+
 import json
 import os
 import re
-import MySQLdb
+import pymysql
 
 
 files = [f for f in os.listdir('.') if re.match(r'.*\.json', f)]
@@ -13,6 +15,6 @@ for f in files:
             print(data)
 
 
-conn=MySQLdb.connect(host='database', user='root', passwd='9zknCUd,789ZyUu:')
+conn=pymysql.connect(host='database', user='root', passwd='9zknCUd,789ZyUu:', db='aubonbeurre')
 cursor=conn.cursor()
-cursor.execute('CREATE DATABASE pierrrolastico')
+cursor.execute('INSERT INTO test (label) VALUES (\'salutpierrotlasticot\')')
