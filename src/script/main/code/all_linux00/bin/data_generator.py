@@ -60,6 +60,14 @@ class InfoEntity:
         level = random.randint(28, 54)
         return level
 
+    def date(self):
+        date = datetime.datetime.now()
+        return date
+
+    def unixtime(self):
+        unixtime = time.mktime(self.date().timetuple())
+        return unixtime
+
 
 Info = InfoEntity()
 
@@ -91,7 +99,8 @@ jsondata = (json.dumps({
     7: Info.concentration(),
     8: Info.salmonelleLevel(),
     9: Info.ecoliLevel(),
-    10: Info.listeriaLevel()
+    10: Info.listeriaLevel(),
+    11: Info.unixtime()
 }, indent=4))
 
 date = datetime.datetime.now()
