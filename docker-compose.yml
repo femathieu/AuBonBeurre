@@ -23,6 +23,8 @@ services:
       dockerfile: ./container/unity/Dockerfile
     volumes:
       - ./src/script/:/opt/script/
+    networks:
+      - middleware
 
   app_middleware:
     build:
@@ -31,4 +33,12 @@ services:
     volumes:
       - ./src/app_middleware/:/opt/aubonbeurre
     tty: true
+    networks:
+      - middleware
+
+networks:
+  middleware:
+    ipam:
+      config:
+        - subnet: 172.168.1.0/24
 

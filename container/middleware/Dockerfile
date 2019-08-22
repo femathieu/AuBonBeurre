@@ -24,4 +24,6 @@ RUN python3.7 -m pip install PyMySQL
 
 COPY ./container/unity/start.sh /
 
+EXPOSE 15555
+
 CMD ["/bin/bash", "/start.sh"]
