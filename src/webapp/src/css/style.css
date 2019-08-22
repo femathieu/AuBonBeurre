@@ -21,6 +21,21 @@ a:hover{
     text-decoration: none;
 }
 
+.btn-outline-dark{
+    border-color: rgb(106, 116, 201);
+    color: rgb(106, 116, 201);
+}
+
+.btn-outline-dark:hover{
+    border-color: rgb(106, 116, 201);
+    color: white;
+    background-color: rgb(106, 116, 201);
+}
+
+.fsize-12{
+    font-size: 12px;
+}
+
 ul{
     padding: 0;
 }
