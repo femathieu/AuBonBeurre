@@ -1,0 +1,22 @@
+:toc: left
+= Fichier répertoriant la docs développeur
+
+Ce dossier contient toute la doc concernant le développement de l'application Au Bon Beurre. +
+Aucune documentation ne doit être indiqué en commentaire dans les fichiers sources. +
+La documentation doit être généré avec asciidoc. +
+Créer un fichier par titre et inclure le fichier créer dans l'index.
+
+== Architecture
+include::architecture.adoc[]
+
+== Coding rules
+include::coding_rules.adoc[]
+
+== Base de données
+include::database.adoc[]
+
+== Versioning
+include::versinoning.adoc[]
+
+== Résolution de bug
+Lors de la résolution d'un bug, ouvrir une issue sur GitHub décrivant le bug et sa localisation. Lorsque le problème est résolue, faire un commit avec le numéro d'issue.

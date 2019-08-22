@@ -16,3 +16,19 @@ services:
        - 3307:3306
     environment:
       MYSQL_ROOT_PASSWORD: aubonbeurre
+
+  unit:
+    build:
+      context: .
+      dockerfile: ./container/unity/Dockerfile
+    volumes:
+      - ./src/script/:/opt/script/
+
+  app_middleware:
+    build:
+      context: .
+      dockerfile: ./container/middleware/Dockerfile
+    volumes:
+      - ./src/app_middleware/:/opt/aubonbeurre
+    tty: true
+

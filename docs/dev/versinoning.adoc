@@ -1,0 +1,9 @@
+Nous utilisons git avec un dépôt distant sur GitHub pour le versioning. +
+Nous suivrons au mieux la méthode Git Flow. +
+Quelques principes de la méhode git flow :
+
+- Branche master est la branche principal contenant la dernière version stable
+- Branch develop sert à mettre en commun les développement
+- Lorsque développement d'une nouvelle fonctionnalité, tiré une branche suivant la nomenclature : f-nom-fonctionnalité depuis la branche develop.
+- Lors de la résolution d'un bug tiré une nouvelle branche respectant la nomenclature : h-nom-bug depuis la branche develop
+se puis merge release sur master.- Lors d'une nouvelle version : merge la branche develop sur la branche release, effectué les dernières modifications et le numéros de build sur relea

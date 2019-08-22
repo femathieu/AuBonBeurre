@@ -2,6 +2,7 @@ FROM debian:9.9
 
 RUN apt-get update -y
 RUN apt-get upgrade -y
+
 RUN apt-get install build-essential libssl-dev zlib1g-dev -y
 RUN apt-get install libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm -y
 RUN apt-get install libncurses5-dev libncursesw5-dev xz-utils tk-dev -y
@@ -15,14 +16,11 @@ RUN ./configure --enable-optimizations
 RUN make altinstall
 
 RUN apt-get install vim -y
-COPY ./container/unity/crontask.sh /opt
-RUN echo '* *   * * *   root    /bin/bash   /opt/crontask.sh' >> /etc/crontab
-RUN echo '#' >> /etc/crontab
+RUN mkdir /opt/aubonbeurre
 
-RUN mkdir /opt/script
-RUN mkdir /opt/data
-COPY ./src/script/ /opt/script/
-WORKDIR /opt/script/main/code/all_linux00/bin
+##RUN python3.7 -m pip install pip
+RUN python3.7 -m pip install --upgrade pip
+RUN python3.7 -m pip install PyMySQL
 
 COPY ./container/unity/start.sh /
 
