@@ -30,4 +30,5 @@ services:
       dockerfile: ./container/middleware/Dockerfile
     volumes:
       - ./src/app_middleware/:/opt/aubonbeurre
+    tty: true
 
