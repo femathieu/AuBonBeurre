@@ -6,7 +6,7 @@ import socket
 import re
 import os
 
-hote = "172.168.1.3"
+hote = "172.168.1.2"
 port = 15555
 
 socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
