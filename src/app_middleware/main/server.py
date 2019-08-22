@@ -21,26 +21,20 @@ while True:
 
 
         # clean files
-        files = [f for f in os.listdir('.') if re.match(r'^\d*\.\d*', f)]
+        files = [f for f in os.listdir('.') if re.match(r'^data$', f)]
         for f in files:
            print("'{}' removed".format(f))
            os.remove(f)
 
         # create file
-        date = "{}".format(re.search(r'\d*\.\d*', response.decode('utf-8')).group())
-        data = open(date, "w+")
+        data = open('data', "w+")
 
         # fill file
-        responseInString = re.sub(r'\d*\.\d*', '', response.decode('utf-8'))
-        response = str.encode(responseInString)
         print("{}".format(response.decode('utf-8')))
-        data = ""
-        files = [f for f in os.listdir('.') if re.match(r'^\d*\.\d*', f)]
-        for f in files:
-              data = open(f, "wb")
+        data = open('data', "wb")
         while response:
-              data.write(response)
-              response = client.recv(1024)
+                data.write(response)
+                response = client.recv(1024)
         data.close()
 
 

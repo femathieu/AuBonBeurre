@@ -23,14 +23,9 @@ for file in files:
 
 data = f.read(1024)
 
-socket.send(str.encode(date))
-
 while data:
     socket.send(data)
     data = f.read(1024)
-
-
-# socket.send("Hey my name is Olivier!")
 
 print("Close")
 socket.close()
