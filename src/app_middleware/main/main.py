@@ -15,6 +15,18 @@ for f in files:
             print(data)
 
 
-conn=pymysql.connect(host='database', user='root', passwd='9zknCUd,789ZyUu:', db='aubonbeurre')
-cursor=conn.cursor()
-cursor.execute('INSERT INTO test (label) VALUES (\'salutpierrotlasticot\')')
+conn=pymysql.connect(host='database', port=3306, user='root', passwd='9zknCUd,789ZyUu:', db='aubonbeurre')
+
+try:
+    with conn.cursor() as cursor:
+        # insert new record
+        sql = "INSERT INTO `test` (`id`,`label`) VALUES (%s, %s)";
+        cursor.execute(sql, (4, 'test@test.org'))
+
+    # connection is not auto commit by default so you need to commit
+    conn.commit()
+finally:
+    conn.close()
+
+
+
