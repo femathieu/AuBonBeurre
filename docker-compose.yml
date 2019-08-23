@@ -5,6 +5,8 @@ services:
     build:
       context: .
       dockerfile: ./container/webapp/Dockerfile
+    volumes:
+      - ./src/webapp/:/var/www 
     ports:
       - 8080:80
 
