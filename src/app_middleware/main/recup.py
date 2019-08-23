@@ -37,18 +37,28 @@ try:
     with connection.cursor() as cursor:
         # Create a new record
                   
-        sql = "INSERT INTO `system_detail` (`system_main_id`, `tank_temperature`, `outside_temperature`, `milk_weight`, `pH`, `Kplus`, `NaCI`, `salmonelle`, `E_coli`, `Listeria`) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s);"
-        cursor.execute(sql, (systemMainId, cuveTemp, extTemp, milkWeight, phMeasure, kMeasure, concentration, salmonelleLevel, ecoliLevel, listeriaLevel))
-
+        sql = """ INSERT INTO `system_detail` ( `system_main_id`, 
+                                                `tank_temperature`, 
+                                                `outside_temperature`, 
+                                                `milk_weight`,
+                                                `pH`, 
+                                                `Kplus`, 
+                                                `NaCI`, 
+                                                `salmonelle`, 
+                                                `E_coli`, 
+                                                `Listeria`
+                                                ) VALUES (1, 1, 1, 1, 1, 1, 1, 1, 1, 1);"""
+        # cursor.execute(sql, (systemMainId, cuveTemp, extTemp, milkWeight, phMeasure, kMeasure, concentration, salmonelleLevel, ecoliLevel, listeriaLevel))
+        cursor.execute(sql)
         # connection is not autocommit by default. So you must commit to save
         # your changes.
         connection.commit()
 
-    with connection.cursor() as cursor:
-        # Read a single record
-        sql = "SELECT * FROM `test`"
-        cursor.execute(sql)
-        result = cursor.fetchone()
-        print(result)
+    # with connection.cursor() as cursor:
+    #     # Read a single record
+    #     sql = "SELECT * FROM `test`"
+    #     cursor.execute(sql)
+    #     result = cursor.fetchone()
+    #     print(result)
 finally:
     connection.close()

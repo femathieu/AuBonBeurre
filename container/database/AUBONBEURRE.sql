@@ -70,8 +70,8 @@ CREATE TABLE `system_main` (
 -- Index pour les tables exportées
 --
 
-ALTER TABLE system_detail
-    ADD FOREIGN KEY (id) REFERENCES system_main(id);
+alter table system_detail
+	ADD CONSTRAINT constraint_name_1 FOREIGN KEY fk_system_main_id(system_main_id) REFERENCES system_main(id);
 
 ALTER TABLE system_main
     ADD FOREIGN KEY (id) REFERENCES production_unit(id);
