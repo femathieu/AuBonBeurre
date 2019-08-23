@@ -47,9 +47,8 @@ try:
                                                 `salmonelle`, 
                                                 `E_coli`, 
                                                 `Listeria`
-                                                ) VALUES (1, 1, 1, 1, 1, 1, 1, 1, 1, 1);"""
-        # cursor.execute(sql, (systemMainId, cuveTemp, extTemp, milkWeight, phMeasure, kMeasure, concentration, salmonelleLevel, ecoliLevel, listeriaLevel))
-        cursor.execute(sql)
+                                                ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s);"""
+        cursor.execute(sql, (systemMainId, cuveTemp, extTemp, milkWeight, phMeasure, kMeasure, concentration, salmonelleLevel, ecoliLevel, listeriaLevel))
         # connection is not autocommit by default. So you must commit to save
         # your changes.
         connection.commit()
