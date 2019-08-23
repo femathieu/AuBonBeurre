@@ -22,7 +22,8 @@ RUN mkdir /opt/aubonbeurre
 RUN python3.7 -m pip install --upgrade pip
 RUN python3.7 -m pip install PyMySQL
 
-COPY ./container/unity/start.sh /
+RUN mkdir /opt/data
+COPY ./container/middleware/start.sh /
 
 EXPOSE 15555
 

@@ -21,24 +21,21 @@ while True:
 
 
         # clean files
-        files = [f for f in os.listdir('.') if re.match(r'^data$', f)]
+        files = [f for f in os.listdir('/opt/data') if re.match(r'^data$', f)]
         for f in files:
            print("'{}' removed".format(f))
-           os.remove(f)
+           os.remove("/opt/data/{}".format(f))
 
         # create file
-        data = open('data', "w+")
+        data = open('/opt/data/data', "w+")
 
         # fill file
         print("{}".format(response.decode('utf-8')))
-        data = open('data', "wb")
+        data = open('/opt/data/data', "wb")
         while response:
                 data.write(response)
                 response = client.recv(1024)
         data.close()
-
-
-
 
 print("Close")
 client.close()

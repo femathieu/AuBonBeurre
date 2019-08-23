@@ -65,7 +65,8 @@ class InfoEntity:
         return date
 
     def unixtime(self):
-        unixtime = time.mktime(self.date().timetuple())
+        date = datetime.datetime.now()
+        unixtime = time.mktime(date.timetuple())
         return unixtime
 
 
