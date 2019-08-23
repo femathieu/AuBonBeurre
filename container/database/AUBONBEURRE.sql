@@ -50,7 +50,8 @@ CREATE TABLE `system_detail` (
   `NaCI` float NOT NULL,
   `salmonelle` int NOT NULL,
   `E_coli` int NOT NULL,
-  `Listeria` int(11) NOT NULL
+  `Listeria` int(11) NOT NULL,
+  `unix_time` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
