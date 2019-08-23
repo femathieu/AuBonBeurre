@@ -25,6 +25,9 @@ RUN python3.7 -m pip install PyMySQL
 RUN mkdir /opt/data
 COPY ./container/middleware/start.sh /
 
+COPY ./container/middleware/crontask.sh /opt/
+RUN echo '* *   * * *   root    /bin/bash   /opt/crontask.sh' >> /etc/crontab
+
 EXPOSE 15555
 
 CMD ["/bin/bash", "/start.sh"]
