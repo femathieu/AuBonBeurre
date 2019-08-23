@@ -75,9 +75,10 @@ alter table system_detail
 	ADD CONSTRAINT constraint_name_1 FOREIGN KEY fk_system_main_id(system_main_id) REFERENCES system_main(id);
 
 ALTER TABLE system_main
-    ADD FOREIGN KEY (id) REFERENCES production_unit(id);
+    ADD CONSTRAINT constraint_name_2 FOREIGN KEY fk_production_unit_id(production_unit_id) REFERENCES production_unit(id);
 
 INSERT INTO production_unit (unit_number) VALUE (1);
+INSERT INTO system_main (system_number, system_type, production_unit_id) VALUES (1, 'custom_type', 1);
 INSERT INTO system_main (system_number, system_type, production_unit_id) VALUES (1, 'custom_type', 1);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

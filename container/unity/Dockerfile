@@ -24,6 +24,10 @@ RUN mkdir /opt/data
 COPY ./src/script/ /opt/script/
 WORKDIR /opt/script/main/code/all_linux00/bin
 
+RUN mkdir /opt/config
+RUN touch /opt/config/id
+RUN echo '1' >> /opt/config/id
+
 COPY ./container/unity/start.sh /
 
 CMD ["/bin/bash", "/start.sh"]

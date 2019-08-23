@@ -22,7 +22,9 @@ class InfoEntity:
         return number
 
     def systemMainId(self):
-        return 1
+        with open("/opt/config/id", "r") as f:
+            id = f.read()
+        return id
 
     def cuveTemp(self):
         temp = round(random.uniform(2.5, 4.0), 1)
