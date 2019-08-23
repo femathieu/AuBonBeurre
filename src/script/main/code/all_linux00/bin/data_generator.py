@@ -21,8 +21,8 @@ class InfoEntity:
         number = random.randint(1, 10)
         return number
 
-    def automateType(self):
-        return "0X0000BA20"
+    def systemMainId(self):
+        return 1
 
     def cuveTemp(self):
         temp = round(random.uniform(2.5, 4.0), 1)
@@ -90,7 +90,7 @@ print(
     " 1 : type d'automate \n 2: Température cuve\n 3: Température exterieure\n 4: Poid lait en cuve\n 5: Mesure ph\n 6: Mesure K+ \n 7: Concentration de NaCI \n 8: Niveau bactérien salmonelle \n 9: Niveau bactérien E-Coli \n 10: Niveau bactérien Listéria")
 
 jsondata = (json.dumps({
-    1: Info.automateType(),
+    1: Info.systemMainId(),
     2: Info.cuveTemp(),
     3: Info.extTemp(),
     4: Info.milkWeight(),
